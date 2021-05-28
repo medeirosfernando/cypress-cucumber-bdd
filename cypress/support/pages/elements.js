@@ -5,13 +5,18 @@ export const ELEMENTS = {
     selectState: 'div[id*="province-input"]',
     selectCity: 'div[id*="city-input"]',
     searchButton: 'button[class^="Button"]',
-    searchButton1: 'div.col button',
+    // searchButton1: 'div.col button',
     labelSpecialty: 'span[class*="ProviderSpecialties--item"]',
     labelState: 'a[class="ProviderAddressAsGrid--address-link"]',
     paginatorButton: 'button[class$="LoadMoreResultsButton"]',
     inputCommonSearch: 'input[id="react-select-2-input"]',
+    inputCity: 'input#react-select-5-input',
+    inputEstablishment: 'input#react-select-7-input',
+    inputNetwork: 'input#react-select-8-input',
+    inputPlan: 'input#react-select-9-input',
     labelEstablishment: 'span[class*="ProviderSpecialties--item"]',
     doctorLabelName: 'div.Provider--name',
     toogleEmergency: 'span[class="Switch--wrapper"] input',
-    labelCityName: 'a[class*="ProviderAddressAsGrid--address-link"]'
+    labelCityName: 'a[class*="ProviderAddressAsGrid--address-link"]',
+    moreFilters: 'span[class="DetailedSearchForm--show-more-filters"] img'
 }   
