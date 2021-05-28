@@ -2,5 +2,8 @@
     "$schema": "https://raw.githubusercontent.com/cypress-io/cypress/develop/cli/schema/cypress.schema.json",
     "baseUrl": "https://www.unimed.coop.br",
     "experimentalSourceRewriting": true,
-    "watchForFileChanges": false
+    "watchForFileChanges": false,
+    "viewportHeight": 900,
+    "viewportWidth": 1280,
+    "testFiles": "**/*.spec.*"
 }

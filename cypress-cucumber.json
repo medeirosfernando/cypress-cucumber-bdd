@@ -3,5 +3,5 @@
     "baseUrl": "https://www.unimed.coop.br",
     "experimentalSourceRewriting": true,
     "watchForFileChanges": false,
-    "testFiles": "**/*.feature"
+    "testFiles": "**/*.{feature,features}"
   }
