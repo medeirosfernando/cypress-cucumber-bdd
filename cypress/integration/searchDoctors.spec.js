@@ -20,7 +20,7 @@ context('Search for doctors', () => {
 
   it('should search for doctors by specialty and city using advanced search and urgent and emergency care only', () => {
     doctors.advancedEmergencySearch()       
-    doctors.advancedSearchEmergencyAssertion()
+    doctors.advancedSearchAssertion()
   })
   
   it('should Search for doctors by city using common search and urgent and emergency care only', () => {
