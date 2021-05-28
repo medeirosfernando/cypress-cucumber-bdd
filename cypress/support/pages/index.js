@@ -55,7 +55,8 @@ class Search {
   } 
   
   commonSearch () {
-    cy.get(el.inputCommonSearch).focus().type(`${city_1}{enter}`)
+    cy.get(el.inputCommonSearch).focus().type(`${city_1}`)
+    cy.get(el.searchButton).last().click({ force: true })
   }
 
   commonSearchAssertion () {
@@ -63,7 +64,8 @@ class Search {
   }
 
   doctorSearch () {
-    cy.get(el.inputCommonSearch).focus().type(`${doctor}{enter}`)
+    cy.get(el.inputCommonSearch).focus().type(`${doctor}`)
+    cy.get(el.searchButton).last().click({ force: true })
   }
 
   doctorSearchAssertion () {
