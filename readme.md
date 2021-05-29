@@ -16,6 +16,9 @@ Tecnologias
 
  escrever os passos: https://www.npmjs.com/package/cypress-cucumber-preprocessor
 
+ Instalei: cucumber e TAB
+ https://github.com/Bkucera/cypress-plugin-tab
+
 Para executar um único cenário no cypress, inserir a tag ".only" na frente do teste.
 
 it.only'example', () => {

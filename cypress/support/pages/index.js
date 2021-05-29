@@ -15,15 +15,22 @@ const qualification = 'Residência'
 class Search {
 
   accessMedicalGuidePage () {
-    cy.visit('/guia-medico')  
+    cy.visit('/guia-medico', { timeout: 60000 })  
     cy.url().should('eq', `${Cypress.config().baseUrl}/guia-medico#/`)
     cy.get(el.titleSearchPage).should('have.text', 'Encontre um médico')
   }
 
   advancedSearch () {
     cy.get(el.tabSearchAdvanced).click()
-    cy.get(el.selectSpecialty).first().click().type('Fonoaudiologia{enter}')
-    cy.get(el.selectState).should('contain', 'Estado').type(`${state}{enter}`)
+    // cy.get('div.css-1xamc9y-placeholder')
+    // .each(($elem, index) => {
+    //   if (index === 0) {
+    //     cy.wrap($elem).click({force: true}).focused().type('{selectall}')
+    //     cy.wrap($elem).type('Fonoaudiologia {enter}', { timeout: 5000 }, {force:true})
+    //     cy.wait(1000) 
+    //   }
+    // })
+    cy.get(el.selectState, { timeout: 5000 }).click().should('contain', 'Estado').type(`${state}{enter}`)
     cy.get(el.selectCity).should('contain', 'Cidade').type(`${city}{enter}`)
     cy.get(el.searchButton).last().click({ force: true })
   }
@@ -229,8 +236,28 @@ class Search {
   advancedPlanQualificationSearchPaginator () {
     cy.get(el.tabSearchAdvanced).click()
     cy.get(el.moreFilters).click({ force: true })
-    cy.get(el.selectState).should('contain', 'Estado').type(`${state}{enter}`)
-    cy.get(el.inputCity).focus().type(`${city_2}{enter}`)  
+
+    cy.get('div.css-1xamc9y-placeholder')
+    .each(($elem, index) => {
+      if (index === 1) {
+        cy.wrap($elem).click({force: true}).focused().type('{selectall}')
+        cy.wrap($elem).type(`${state}{enter}`, { timeout: 5000 }, {force:true})
+        cy.wait(1500) //.type('{pagedown}').scrollIntoView() //.find('Fonoaudiologia') //.type('{enter}') //.type('Fonoaudiologia{enter}').should('have.text', 'Fonoaudiologia')
+      }
+    })
+
+    cy.get('div.css-1xamc9y-placeholder')
+    .each(($elem, index) => {
+      if (index === 1) {
+        cy.wrap($elem).click({force: true}).focused().type('{selectall}')
+        cy.wrap($elem).type(`${city_2}{enter}`, { timeout: 5000 }, {force:true})
+        cy.wait(1000) //.type('{pagedown}').scrollIntoView() //.find('Fonoaudiologia') //.type('{enter}') //.type('Fonoaudiologia{enter}').should('have.text', 'Fonoaudiologia')
+      }
+    })
+
+
+    // cy.get(el.selectState).should('contain', 'Estado').type(`${state}{enter}`)
+    // cy.get(el.inputCity).focus().type(`${city_2}{enter}`)  
     cy.get(el.inputPlan).focus().type('(436116014) - 200611 ADESAO GRANDE GRUPO BOLETO ALFA DENTAL UNIPART 30{enter}')
     cy.get(el.inputQualification).focus().type('Residência{enter}') 
     cy.get(el.searchButton).last().click({ force: true })

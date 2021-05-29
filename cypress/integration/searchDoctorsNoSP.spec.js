@@ -2,7 +2,7 @@
 
 import doctors from '../support/pages'
 
-context('Search for doctors', () => {
+context('Search for doctors no SP', () => {
 
   beforeEach(() => {
       doctors.accessMedicalGuidePage()
@@ -88,7 +88,7 @@ context('Search for doctors', () => {
     doctors.advancedSearchAssertion()    
   })
 
-  it.only('should seek doctors only in the Rio de Janeiro city by plan and qualification', () => {
+  it('should seek doctors only in the Rio de Janeiro city by plan and qualification', () => {
     doctors.advancedPlanQualificationSearchPaginator()  
     doctors.advancedSearchAssertion()    
   })  
