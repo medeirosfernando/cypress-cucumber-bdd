@@ -4,28 +4,31 @@
 
 - https://www.unimed.coop.br
 
-Passos:
+Passos para configuração e execução do projeto:
   a. instalação das dependências: `npm install`
   b. execução dos testes modo open: `npm run cy:open`
-  c. execução dos testes modo headless: `npm run cy:run`
-  d. execução dos testes modo open com cucumber: `npm run cy:open:cucumber`
-  e. execução dos testes modo headless com cucumber: `npm run cy:run:cucumber`
+  c. execução dos testes modo open com cucumber: `npm run cy:open:cucumber`
+
+# Tecnologias
+- Cypress 7.4.0
+- Cucumber
+- NodeJs 14.15.0
+- NPM 7.13.0
+# Dependências
+
+- Cypress Cucumber Preprocessor (site para configuração: https://www.npmjs.com/package/cypress-cucumber-preprocessor)
+- Cypress Tab (site para configuração: https://github.com/Bkucera/cypress-plugin-tab)
 
 
-Tecnologias
+# Execução de cenários individuais
 
- escrever os passos: https://www.npmjs.com/package/cypress-cucumber-preprocessor
-
- Instalei: cucumber e TAB
- https://github.com/Bkucera/cypress-plugin-tab
-
-Para executar um único cenário no cypress, inserir a tag ".only" na frente do teste.
+- Para executar um único cenário no cypress, inserir a tag ".only" na frente do teste.
 
 it.only'example', () => {
     // test code
   });
 
-Para executar um único cenário no cucumber, inserir a tag "@focus" acima do cenário.
+- Para executar um único cenário no cucumber, inserir a tag "@focus" acima do cenário.
 
 @focus
 Scenario: Scenario name
