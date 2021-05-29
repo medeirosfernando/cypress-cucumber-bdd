@@ -9,8 +9,6 @@ const city_2 = 'Rio de Janeiro'
 const district = 'Centro'
 const district_1 = 'Bangu'
 const doctor = 'Karla Valeria Medina Fisioterapia '
-// const specialty = 'Fonoaudiologia'
-// const establishment = 'Hospital'
 const establishment_1 = 'Médico'
 const qualification = 'Residência'
 

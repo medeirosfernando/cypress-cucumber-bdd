@@ -8,6 +8,12 @@ const city_1 = 'Armação dos Búzios'
 const doctor = 'Karla Valeria Medina Fisioterapia '
 const specialty = 'Fonoaudiologia'
 
+// Background - access to the Medical Guide
+Given(/^I have access to the Medical Guide$/, () => {
+	cy.visit('/guia-medico')
+});
+
+
 // Scenario: Search for doctors by city using common search
 When(/^I fill the search field$/, () => {
     cy.get(el.inputCommonSearch).focus().type(`${city_1}`)

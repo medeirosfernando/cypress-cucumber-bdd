@@ -88,8 +88,8 @@ context('Search for doctors', () => {
     doctors.advancedSearchAssertion()    
   })
 
-  it('should seek doctors only in the Rio de Janeiro city by plan and qualification', () => {
+  it.only('should seek doctors only in the Rio de Janeiro city by plan and qualification', () => {
     doctors.advancedPlanQualificationSearchPaginator()  
     doctors.advancedSearchAssertion()    
-  })
+  })  
 })

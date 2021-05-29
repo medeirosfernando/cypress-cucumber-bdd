@@ -31,7 +31,7 @@ Scenario: Seek doctors only in the Rio de Janeiro city by establishment
     And I click on see more filters
     And I select the state
     And I select the city
-    And I select the district
+    And I select the establishment
     And I click on button search
     Then I see options for doctors
 
@@ -48,5 +48,104 @@ Scenario: Seek doctors only in the Rio de Janeiro city by plan type
     And I select the state
     And I select the city
     And I select the plan
+    And I click on button search
+    Then I see options for doctors
+
+Scenario: Seek doctors only in the Rio de Janeiro city by qualification
+    And I click on see more filters
+    And I select the state
+    And I select the city
+    And I select the qualification
+    And I click on button search
+    Then I see options for doctors
+
+Scenario: Seek doctors only in the Rio de Janeiro city by district and type
+    And I click on see more filters
+    And I select the state
+    And I select the city
+    And I select the district
+    And I select the establishment
+    And I click on button search
+    Then I see options for doctors
+
+Scenario: Seek doctors only in the Rio de Janeiro city by district and network
+    And I click on see more filters
+    And I select the state
+    And I select the city
+    And I select the district
+    And I select the network
+    And I click on button search
+    Then I see options for doctors
+
+
+Scenario: Seek doctors only in the Rio de Janeiro city by district and plan
+    And I click on see more filters
+    And I select the state
+    And I select the city
+    And I select the district
+    And I select the plan
+    And I click on button search
+    Then I see options for doctors
+
+Scenario: Seek doctors only in the Rio de Janeiro city by district and qualification    
+    And I click on see more filters
+    And I select the state
+    And I select the city
+    And I select the district
+    And I select the qualification
+    And I click on button search
+    Then I see options for doctors
+
+Scenario: Seek doctors only in the Rio de Janeiro city by type and network
+    And I click on see more filters
+    And I select the state
+    And I select the city
+    And I select the type
+    And I select the network
+    And I click on button search
+    Then I see options for doctors
+
+Scenario: Seek doctors only in the Rio de Janeiro city by type and plan
+    And I click on see more filters
+    And I select the state
+    And I select the city
+    And I select the type
+    And I select the plan
+    And I click on button search
+    Then I see options for doctors
+
+Scenario: Seek doctors only in the Rio de Janeiro city by type and qualification
+    And I click on see more filters
+    And I select the state
+    And I select the city
+    And I select the type
+    And I select the qualification
+    And I click on button search
+    Then I see options for doctors
+
+Scenario: Seek doctors only in the Rio de Janeiro city by network and plan
+    And I click on see more filters
+    And I select the state
+    And I select the city
+    And I select the network
+    And I select the plan
+    And I click on button search
+    Then I see options for doctors
+
+Scenario: Seek doctors only in the Rio de Janeiro city by network and qualification
+    And I click on see more filters
+    And I select the state
+    And I select the city
+    And I select the network
+    And I select the qualification
+    And I click on button search
+    Then I see options for doctors
+
+Scenario: Seek doctors only in the Rio de Janeiro city by plan and qualification
+    And I click on see more filters
+    And I select the state
+    And I select the city
+    And I select the plan 436116014
+    And I select the qualification
     And I click on button search
     Then I see options for doctors
