@@ -1,4 +1,4 @@
-Feature: Search Doctor
+Feature: Search Doctor No SP
 
     Being a user of the Unimed website
     I want to search for doctors in the city of Rio de Janeiro
