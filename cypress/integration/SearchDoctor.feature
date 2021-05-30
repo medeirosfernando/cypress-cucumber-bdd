@@ -14,14 +14,18 @@ Scenario: Search for doctors by city using common search
 
 Scenario: Search for doctors by specialty and city using detailed search 
     When I click on Detailed search
-    And I fill the fields
+    And I select the specialty
+    And I select the state
+    And I select the city
     And I click on Search button
     Then I see options for doctors by specialty for the city
 
 Scenario: Search for doctors by specialty and city using detailed search and urgent and emergency care only
     When I click on Detailed search
     And I select the Urgent and emergency care only button
-    And I fill the fields
+    And I select the specialty
+    And I select the state
+    And I select the city
     And I click on Search button
     Then I see options of doctors by specialty for the city
 

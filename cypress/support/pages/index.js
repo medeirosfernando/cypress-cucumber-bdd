@@ -25,6 +25,7 @@ class Search {
 
   advancedSearch () {
     cy.get(el.tabSearchAdvanced).click()
+    cy.get(el.selectSpecialty, { timeout: 30000 }).first().click().type('Fonoaudiologia{enter}')
     cy.get(el.selectStateDynamic, { timeout: 15000 }).click({ force: true }).should('be.visible', 'Rio de Janeiro')
     cy.get(el.selectMenuDynamic).scrollIntoView().should('be.visible')
     cy.get(el.selectStateRJ).contains('Rio de Janeiro').click()     
@@ -34,18 +35,48 @@ class Search {
     cy.get(el.searchButton).last().click({ force: true })
   }
 
+  advancedSearchAllFilters () {
+    cy.get(el.tabSearchAdvanced).click()
+    cy.get(el.toogleEmergency).click()
+    cy.get(el.moreFilters).click({ force: true })
+    cy.get(el.selectSpecialty, { timeout: 30000 }).first().click().type('Consulta Ginecologia{enter}')
+    cy.get(el.selectStateDynamic, { timeout: 15000 }).click({ force: true }).should('be.visible', 'Rio de Janeiro')
+    cy.get(el.selectMenuDynamic).scrollIntoView().should('be.visible')
+    cy.get(el.selectStateRJ).contains('Rio de Janeiro').click()     
+    cy.get(el.selectCityDinamic, { timeout: 15000}).click({ force: true }).should('be.visible', 'Cidade')
+    cy.get(el.selectMenuDynamic).scrollIntoView().should('be.visible')
+    cy.get(el.selectCityRioJaneiro).contains('Rio de Janeiro').click()
+
+    cy.get('div div[class=" css-1xamc9y-placeholder"]', { timeout: 15000 }).contains('Bairro').click({ force: true }).should('be.visible', 'Bairro')
+    cy.get(el.selectMenuDynamic).scrollIntoView().should('be.visible')
+    cy.get(el.selectMenuDynamic, { timeout: 15000 }).contains('Centro').click()
+
+    cy.get(el.inputEstablishment, { timeout: 8000 }).focus().type(`${establishment_1}{enter}`)
+    cy.get(el.inputNetwork, { timeout: 8000 }).focus().type('ES04{enter}') 
+    cy.get(el.inputPlan, { timeout: 8000 }).focus().type('(449992041) - 200611 ADESAO GRANDE GRUPO BOLETO PERSONAL DENTAL QTO COLET{enter}')
+    cy.get(el.inputQualification, { timeout: 8000 }).focus().type('Residência{enter}')
+    cy.wait(2000)
+    cy.get(el.searchButton).last().click({ force: true })
+  }
+
   advancedEmergencySearch () {
     cy.get(el.tabSearchAdvanced).click()
     cy.get(el.toogleEmergency).click()
-    cy.get(el.selectSpecialty).first().click().type('Fonoaudiologia{enter}')
-    cy.get(el.selectState).should('contain', 'Estado').type(`${state}{enter}`)
-    cy.get(el.selectCity).should('contain', 'Cidade').type(`${city}{enter}`)
+    cy.get(el.selectSpecialty, { timeout: 30000 }).first().click().type('Fonoaudiologia{enter}')
+    cy.get(el.selectStateDynamic, { timeout: 15000 }).click({ force: true }).should('be.visible', 'Rio de Janeiro')
+    cy.get(el.selectMenuDynamic).scrollIntoView().should('be.visible')
+    cy.get(el.selectStateRJ).contains('Rio de Janeiro').click()     
+    cy.get(el.selectCityDinamic, { timeout: 15000}).click({ force: true }).should('be.visible', 'Cidade')
+    cy.get(el.selectMenuDynamic).scrollIntoView().should('be.visible')
+    cy.get(el.selectCityAraruama).contains('Araruama').click()
     cy.get(el.searchButton).last().click({ force: true })
   }
 
   advancedSearchPaginator () {
     cy.get(el.tabSearchAdvanced).click()
-    cy.get(el.selectState).should('contain', 'Estado').type(`${state}{enter}`)    
+    cy.get(el.selectStateDynamic, { timeout: 15000 }).click({ force: true }).should('be.visible', 'Rio de Janeiro')
+    cy.get(el.selectMenuDynamic).scrollIntoView().should('be.visible')
+    cy.get(el.selectStateRJ).contains('Rio de Janeiro').click()     
     cy.get(el.searchButton).last().click({ force: true })
     cy.get(el.paginatorButton).click() 
     cy.get(el.paginatorButton).click()
@@ -54,7 +85,9 @@ class Search {
   advancedEmergencySearchPaginator () {
     cy.get(el.tabSearchAdvanced).click()
     cy.get(el.toogleEmergency).click()
-    cy.get(el.selectState).should('contain', 'Estado').type(`${state}{enter}`)    
+    cy.get(el.selectStateDynamic, { timeout: 15000 }).click({ force: true }).should('be.visible', 'Rio de Janeiro')
+    cy.get(el.selectMenuDynamic).scrollIntoView().should('be.visible')
+    cy.get(el.selectStateRJ).contains('Rio de Janeiro').click()     
     cy.get(el.searchButton).last().click({ force: true })
     cy.get(el.paginatorButton).click() 
     cy.get(el.paginatorButton).click()
@@ -63,7 +96,9 @@ class Search {
   advancedDistrictSearchPaginator () {
     cy.get(el.tabSearchAdvanced).click()
     cy.get(el.moreFilters).click({ force: true })
-    cy.get(el.selectState).should('contain', 'Estado').type(`${state}{enter}`)
+    cy.get(el.selectStateDynamic, { timeout: 15000 }).click({ force: true }).should('be.visible', 'Rio de Janeiro')
+    cy.get(el.selectMenuDynamic).scrollIntoView().should('be.visible')
+    cy.get(el.selectStateRJ).contains('Rio de Janeiro').click() 
     cy.get(el.inputCity).focus().type(`${city_2}{enter}`)    
     cy.get(el.inputDistrict).focus().type(`${district}{enter}`) 
     cy.get(el.searchButton).last().click({ force: true })
@@ -74,7 +109,9 @@ class Search {
   advancedEstablishmentSearchPaginator () {
     cy.get(el.tabSearchAdvanced).click()
     cy.get(el.moreFilters).click({ force: true })
-    cy.get(el.selectState).should('contain', 'Estado').type(`${state}{enter}`)
+    cy.get(el.selectStateDynamic, { timeout: 15000 }).click({ force: true }).should('be.visible', 'Rio de Janeiro')
+    cy.get(el.selectMenuDynamic).scrollIntoView().should('be.visible')
+    cy.get(el.selectStateRJ).contains('Rio de Janeiro').click() 
     cy.get(el.inputCity).focus().type(`${city_2}{enter}`)    
     cy.get(el.inputEstablishment).focus().type(`${establishment_1}{enter}`)
     cy.get(el.searchButton).last().click({ force: true })
@@ -85,7 +122,9 @@ class Search {
   advancedNetworkSearchPaginator () {
     cy.get(el.tabSearchAdvanced).click()
     cy.get(el.moreFilters).click({ force: true })
-    cy.get(el.selectState).should('contain', 'Estado').type(`${state}{enter}`)
+    cy.get(el.selectStateDynamic, { timeout: 15000 }).click({ force: true }).should('be.visible', 'Rio de Janeiro')
+    cy.get(el.selectMenuDynamic).scrollIntoView().should('be.visible')
+    cy.get(el.selectStateRJ).contains('Rio de Janeiro').click() 
     cy.get(el.inputCity).focus().type(`${city_2}{enter}`)    
     cy.get(el.inputNetwork).focus().type('ES04{enter}') 
     cy.get(el.searchButton).last().click({ force: true })
@@ -96,7 +135,9 @@ class Search {
   advancedPlanTypeSearchPaginator () {
     cy.get(el.tabSearchAdvanced).click()
     cy.get(el.moreFilters).click({ force: true })
-    cy.get(el.selectState).should('contain', 'Estado').type(`${state}{enter}`)
+    cy.get(el.selectStateDynamic, { timeout: 15000 }).click({ force: true }).should('be.visible', 'Rio de Janeiro')
+    cy.get(el.selectMenuDynamic).scrollIntoView().should('be.visible')
+    cy.get(el.selectStateRJ).contains('Rio de Janeiro').click() 
     cy.get(el.inputCity).focus().type(`${city_2}{enter}`)    
     cy.get(el.inputPlan).focus().type('(480053182) - UNIMED FACIL INDIVIDUAL ESTADUAL COLETIVO{enter}')  
     cy.get(el.searchButton).last().click({ force: true })
@@ -107,7 +148,9 @@ class Search {
   advancedQualificationSearchPaginator () {
     cy.get(el.tabSearchAdvanced).click()
     cy.get(el.moreFilters).click({ force: true })
-    cy.get(el.selectState).should('contain', 'Estado').type(`${state}{enter}`)
+    cy.get(el.selectStateDynamic, { timeout: 15000 }).click({ force: true }).should('be.visible', 'Rio de Janeiro')
+    cy.get(el.selectMenuDynamic).scrollIntoView().should('be.visible')
+    cy.get(el.selectStateRJ).contains('Rio de Janeiro').click() 
     cy.get(el.inputCity).focus().type(`${city_2}{enter}`)  
     cy.get(el.inputQualification).focus().type('Residência{enter}')  
     cy.get(el.searchButton).last().click({ force: true })
@@ -118,7 +161,9 @@ class Search {
   advancedDistrictTypeSearchPaginator () {
     cy.get(el.tabSearchAdvanced).click()
     cy.get(el.moreFilters).click({ force: true })
-    cy.get(el.selectState).should('contain', 'Estado').type(`${state}{enter}`)
+    cy.get(el.selectStateDynamic, { timeout: 15000 }).click({ force: true }).should('be.visible', 'Rio de Janeiro')
+    cy.get(el.selectMenuDynamic).scrollIntoView().should('be.visible')
+    cy.get(el.selectStateRJ).contains('Rio de Janeiro').click() 
     cy.get(el.inputCity).focus().type(`${city_2}{enter}`) 
     cy.wait(1000) 
     cy.get(el.inputDistrict).focus().type(`${district_1}{enter}`) 
@@ -131,7 +176,9 @@ class Search {
   advancedDistrictNetworkSearchPaginator () {
     cy.get(el.tabSearchAdvanced).click()
     cy.get(el.moreFilters).click({ force: true })
-    cy.get(el.selectState).should('contain', 'Estado').type(`${state}{enter}`)
+    cy.get(el.selectStateDynamic, { timeout: 15000 }).click({ force: true }).should('be.visible', 'Rio de Janeiro')
+    cy.get(el.selectMenuDynamic).scrollIntoView().should('be.visible')
+    cy.get(el.selectStateRJ).contains('Rio de Janeiro').click() 
     cy.get(el.inputCity).focus().type(`${city_2}{enter}`)  
     cy.get(el.inputDistrict).focus().type(`${district}{enter}`) 
     cy.get(el.inputNetwork).focus().type('ES04{enter}')    
@@ -143,7 +190,9 @@ class Search {
   advancedDistrictPlanSearchPaginator () {
     cy.get(el.tabSearchAdvanced).click()
     cy.get(el.moreFilters).click({ force: true })
-    cy.get(el.selectState).should('contain', 'Estado').type(`${state}{enter}`)
+    cy.get(el.selectStateDynamic, { timeout: 15000 }).click({ force: true }).should('be.visible', 'Rio de Janeiro')
+    cy.get(el.selectMenuDynamic).scrollIntoView().should('be.visible')
+    cy.get(el.selectStateRJ).contains('Rio de Janeiro').click() 
     cy.get(el.inputCity).focus().type(`${city_2}{enter}`)  
     cy.get(el.inputDistrict).focus().type(`${district}{enter}`) 
     cy.get(el.inputPlan).focus().type('(705690997) - 200611 ADESAO GRANDE GRUPO BOLETO ALFA{enter}')      
@@ -155,7 +204,9 @@ class Search {
   advancedDistrictQualificationSearchPaginator () {
     cy.get(el.tabSearchAdvanced).click()
     cy.get(el.moreFilters).click({ force: true })
-    cy.get(el.selectState).should('contain', 'Estado').type(`${state}{enter}`)
+    cy.get(el.selectStateDynamic, { timeout: 15000 }).click({ force: true }).should('be.visible', 'Rio de Janeiro')
+    cy.get(el.selectMenuDynamic).scrollIntoView().should('be.visible')
+    cy.get(el.selectStateRJ).contains('Rio de Janeiro').click() 
     cy.get(el.inputCity).focus().type(`${city_2}{enter}`)  
     cy.get(el.inputDistrict).focus().type(`${district}{enter}`)   
     cy.get(el.inputQualification).focus().type(`${qualification}{enter}`)    
@@ -167,7 +218,9 @@ class Search {
   advancedTypeNetworkSearchPaginator () {
     cy.get(el.tabSearchAdvanced).click()
     cy.get(el.moreFilters).click({ force: true })
-    cy.get(el.selectState).should('contain', 'Estado').type(`${state}{enter}`)
+    cy.get(el.selectStateDynamic, { timeout: 15000 }).click({ force: true }).should('be.visible', 'Rio de Janeiro')
+    cy.get(el.selectMenuDynamic).scrollIntoView().should('be.visible')
+    cy.get(el.selectStateRJ).contains('Rio de Janeiro').click() 
     cy.get(el.inputCity).focus().type(`${city_2}{enter}`)  
     cy.get(el.inputEstablishment).focus().type(`${establishment_1}{enter}`)   
     cy.get(el.inputNetwork).focus().type('ES05{enter}')    
@@ -179,7 +232,9 @@ class Search {
   advancedTypePlanSearchPaginator () {
     cy.get(el.tabSearchAdvanced).click()
     cy.get(el.moreFilters).click({ force: true })
-    cy.get(el.selectState).should('contain', 'Estado').type(`${state}{enter}`)
+    cy.get(el.selectStateDynamic, { timeout: 15000 }).click({ force: true }).should('be.visible', 'Rio de Janeiro')
+    cy.get(el.selectMenuDynamic).scrollIntoView().should('be.visible')
+    cy.get(el.selectStateRJ).contains('Rio de Janeiro').click() 
     cy.get(el.inputCity).focus().type(`${city_2}{enter}`)  
     cy.get(el.inputEstablishment, { timeout: 5000 }).focus().type(`${establishment_1}{enter}`)   
     cy.get(el.inputPlan).focus().type('(705690997) - 200611 ADESAO GRANDE GRUPO BOLETO ALFA{enter}') 
@@ -193,7 +248,9 @@ class Search {
   advancedTypeQualificationSearchPaginator () {
     cy.get(el.tabSearchAdvanced).click()
     cy.get(el.moreFilters).click({ force: true })
-    cy.get(el.selectState).should('contain', 'Estado').type(`${state}{enter}`)
+    cy.get(el.selectStateDynamic, { timeout: 15000 }).click({ force: true }).should('be.visible', 'Rio de Janeiro')
+    cy.get(el.selectMenuDynamic).scrollIntoView().should('be.visible')
+    cy.get(el.selectStateRJ).contains('Rio de Janeiro').click() 
     cy.get(el.inputCity).focus().type(`${city_2}{enter}`)  
     cy.get(el.inputEstablishment, { timeout: 5000 }).focus().type(`${establishment_1}{enter}`)   
     cy.get(el.inputQualification).focus().type('Residência{enter}') 
@@ -207,7 +264,9 @@ class Search {
   advancedNetworkPlanSearchPaginator () {
     cy.get(el.tabSearchAdvanced).click()
     cy.get(el.moreFilters).click({ force: true })
-    cy.get(el.selectState).should('contain', 'Estado').type(`${state}{enter}`)
+    cy.get(el.selectStateDynamic, { timeout: 15000 }).click({ force: true }).should('be.visible', 'Rio de Janeiro')
+    cy.get(el.selectMenuDynamic).scrollIntoView().should('be.visible')
+    cy.get(el.selectStateRJ).contains('Rio de Janeiro').click() 
     cy.get(el.inputCity).focus().type(`${city_2}{enter}`)  
     cy.get(el.inputNetwork).focus().type('ES04{enter}')
     cy.get(el.inputPlan).focus().type('(705690997) - 200611 ADESAO GRANDE GRUPO BOLETO ALFA{enter}')
@@ -221,7 +280,9 @@ class Search {
   advancedNetworkQualificationSearchPaginator () {
     cy.get(el.tabSearchAdvanced).click()
     cy.get(el.moreFilters).click({ force: true })
-    cy.get(el.selectState).should('contain', 'Estado').type(`${state}{enter}`)
+    cy.get(el.selectStateDynamic, { timeout: 15000 }).click({ force: true }).should('be.visible', 'Rio de Janeiro')
+    cy.get(el.selectMenuDynamic).scrollIntoView().should('be.visible')
+    cy.get(el.selectStateRJ).contains('Rio de Janeiro').click() 
     cy.get(el.inputCity, { timeout: 5000 }).focus().type(`${city_2}{enter}`)  
     cy.get(el.inputNetwork, { timeout: 5000 }).focus().type('ES04{enter}')   
     cy.get(el.inputQualification).focus().type('Residência{enter}') 
@@ -241,7 +302,7 @@ class Search {
       if (index === 1) {
         cy.wrap($elem).click({force: true}).focused().type('{selectall}')
         cy.wrap($elem).type(`${state}{enter}`, { timeout: 5000 }, {force:true})
-        cy.wait(1500) //.type('{pagedown}').scrollIntoView() //.find('Fonoaudiologia') //.type('{enter}') //.type('Fonoaudiologia{enter}').should('have.text', 'Fonoaudiologia')
+        cy.wait(1500) 
       }
     })
 
@@ -250,13 +311,10 @@ class Search {
       if (index === 1) {
         cy.wrap($elem).click({force: true}).focused().type('{selectall}')
         cy.wrap($elem).type(`${city_2}{enter}`, { timeout: 5000 }, {force:true})
-        cy.wait(1000) //.type('{pagedown}').scrollIntoView() //.find('Fonoaudiologia') //.type('{enter}') //.type('Fonoaudiologia{enter}').should('have.text', 'Fonoaudiologia')
+        cy.wait(1000) 
       }
     })
 
-
-    // cy.get(el.selectState).should('contain', 'Estado').type(`${state}{enter}`)
-    // cy.get(el.inputCity).focus().type(`${city_2}{enter}`)  
     cy.get(el.inputPlan).focus().type('(436116014) - 200611 ADESAO GRANDE GRUPO BOLETO ALFA DENTAL UNIPART 30{enter}')
     cy.get(el.inputQualification).focus().type('Residência{enter}') 
     cy.get(el.searchButton).last().click({ force: true })
@@ -266,27 +324,10 @@ class Search {
     cy.get(el.paginatorButton_2, { timeout: 5000 }).click({ force: true })
   }
 
-  // advancedSearchAssertion () {
-  //   cy.get(el.labelSpecialty).should('contain.text', specialty)
-  //   cy.get(el.labelState).should('contain.text', city)
-  // } 
-
   advancedSearchAssertion () {
+    cy.wait(2000)
     cy.get(el.labelState, { timeout: 150000 }).should('contain.text', state_1)
-    cy.pause()
   }
-  
-  // advancedSearchPaginatorAssertion () {
-  //   cy.get(el.labelState).should('contain.text', state_1)
-  // } 
-
-  // advancedEmergencySearchPaginatorAssertion () {
-  //   cy.get(el.labelState).should('contain.text', state_1)
-  // } 
-
-  // advancedPlanTypeSearchPaginatorAssertion () {
-  //   cy.get(el.labelState).should('contain.text', state_1)
-  // }
   
   commonSearch () {
     cy.get(el.inputCommonSearch).focus().type(`${city_1}`)
@@ -298,7 +339,7 @@ class Search {
   }
 
   doctorSearch () {
-    cy.get(el.inputCommonSearch).focus().type(`${doctor}`)
+    cy.get(el.inputCommonSearch, { timeout: 10000 }).focus().type(`${doctor}`)
     cy.get(el.searchButton).last().click({ force: true })
   }
 

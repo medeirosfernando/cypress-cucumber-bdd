@@ -24,18 +24,24 @@ When(/^I click on Search button$/, () => {
 });
 
 Then(/^I see options for doctors in the city$/, () => {
-	cy.get(el.labelState).should('contain', city_1)
+	cy.get(el.labelState, { timeout: 120000}).should('contain', city_1)
 });
 
 // Scenario: Search for doctors by specialty and city using detailed search
-When(/^I click on Detailed search$/, () => {
-	cy.get(el.tabSearchAdvanced).click()
+When(/^I select the specialty$/, () => {
+	cy.get(el.selectSpecialty, { timeout: 30000 }).first().click().type('Fonoaudiologia{enter}')
 });
 
-When(/^I fill the fields$/, () => {
-	cy.get(el.selectSpecialty).first().click().type('Fonoaudiologia{enter}')
-    cy.get(el.selectState).should('contain', 'Estado').type(`${state}{enter}`)
-    cy.get(el.selectCity).should('contain', 'Cidade').type(`${city}{enter}`)
+When(/^I select the state$/, () => {
+	cy.get(el.selectStateDynamic, { timeout: 15000 }).click({ force: true }).should('be.visible', 'Rio de Janeiro')
+    cy.get(el.selectMenuDynamic).scrollIntoView().should('be.visible')
+    cy.get(el.selectStateRJ).contains('Rio de Janeiro').click()
+});
+
+When(/^I select the city$/, () => {
+	cy.get(el.selectCityDinamic, { timeout: 15000}).click({ force: true }).should('be.visible', 'Cidade')
+    cy.get(el.selectMenuDynamic).scrollIntoView().should('be.visible')
+    cy.get(el.selectCityAraruama).contains('Araruama').click()
 });
 
 When(/^I click on Search button$/, () => {
@@ -56,10 +62,20 @@ When(/^I select the Urgent and emergency care only button$/, () => {
 	cy.get(el.toogleEmergency).click()
 });
 
-When(/^I fill the fields$/, () => {
-	cy.get(el.selectSpecialty).first().click().type('Fonoaudiologia{enter}')
-    cy.get(el.selectState).should('contain', 'Estado').type(`${state}{enter}`)
-    cy.get(el.selectCity).should('contain', 'Cidade').type(`${city}{enter}`)
+When(/^I select the specialty$/, () => {
+	cy.get(el.selectSpecialty, { timeout: 30000 }).first().click().type('Fonoaudiologia{enter}')
+});
+
+When(/^I select the state$/, () => {
+	cy.get(el.selectStateDynamic, { timeout: 15000 }).click({ force: true }).should('be.visible', 'Rio de Janeiro')
+    cy.get(el.selectMenuDynamic).scrollIntoView().should('be.visible')
+    cy.get(el.selectStateRJ).contains('Rio de Janeiro').click()
+});
+
+When(/^I select the city$/, () => {
+	cy.get(el.selectCityDinamic, { timeout: 15000}).click({ force: true }).should('be.visible', 'Cidade')
+    cy.get(el.selectMenuDynamic).scrollIntoView().should('be.visible')
+    cy.get(el.selectCityAraruama).contains('Araruama').click()
 });
 
 When(/^I click on Search button$/, () => {
@@ -91,7 +107,7 @@ Then(/^I see options of doctors in the city$/, () => {
 
 // Scenario: search for specific doctor
 When(/^I fill the search field with a doctor name$/, () => {
-	cy.get(el.inputCommonSearch).focus().type(`${doctor}`)
+	cy.get(el.inputCommonSearch, { timeout: 10000 }).focus().type(`${doctor}`)
 });
 
 When(/^I click on Enter key$/, () => {
@@ -99,6 +115,6 @@ When(/^I click on Enter key$/, () => {
 });
 
 Then(/^I see options of the doctors in the city$/, () => {
-	cy.get(el.doctorLabelName).should('have.text', doctor)
+	cy.get(el.doctorLabelName, { timeout: 150000 }).should('have.text', doctor)
 });
 

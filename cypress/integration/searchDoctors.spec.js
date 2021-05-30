@@ -18,7 +18,7 @@ context('Search for doctors', () => {
     doctors.advancedSearchAssertion()
   }) 
 
-  it('should search for doctors by specialty and city using advanced search and urgent and emergency care only', () => {
+  it('should search for doctors by specialty and city using detailed search and urgent and emergency care only', () => {
     doctors.advancedEmergencySearch()       
     doctors.advancedSearchAssertion()
   })
@@ -32,6 +32,11 @@ context('Search for doctors', () => {
     doctors.doctorSearch()
     doctors.doctorSearchAssertion()
   });
+
+  it.only('should search medicals using all filters', () => {
+    doctors.advancedSearchAllFilters()       
+    doctors.advancedSearchAssertion()
+  }) 
   
   it.skip('should search for the CPF document', () => {
     // I am not a customer and it is impossible to execute this scenario.
