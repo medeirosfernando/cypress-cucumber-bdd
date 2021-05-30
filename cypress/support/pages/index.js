@@ -20,18 +20,17 @@ class Search {
     cy.get(el.titleSearchPage).should('have.text', 'Encontre um médico')
   }
 
+
+  // div[class="InputColumn col-lg-6"] 
+
   advancedSearch () {
     cy.get(el.tabSearchAdvanced).click()
-    // cy.get('div.css-1xamc9y-placeholder')
-    // .each(($elem, index) => {
-    //   if (index === 0) {
-    //     cy.wrap($elem).click({force: true}).focused().type('{selectall}')
-    //     cy.wrap($elem).type('Fonoaudiologia {enter}', { timeout: 5000 }, {force:true})
-    //     cy.wait(1000) 
-    //   }
-    // })
-    cy.get(el.selectState, { timeout: 5000 }).click().should('contain', 'Estado').type(`${state}{enter}`)
-    cy.get(el.selectCity).should('contain', 'Cidade').type(`${city}{enter}`)
+    cy.get(el.selectStateDynamic, { timeout: 15000 }).click({ force: true }).should('be.visible', 'Rio de Janeiro')
+    cy.get(el.selectMenuDynamic).scrollIntoView().should('be.visible')
+    cy.get(el.selectStateRJ).contains('Rio de Janeiro').click()     
+    cy.get(el.selectCityDinamic, { timeout: 15000}).click({ force: true }).should('be.visible', 'Cidade')
+    cy.get(el.selectMenuDynamic).scrollIntoView().should('be.visible')
+    cy.get(el.selectCityAraruama).contains('Araruama').click()
     cy.get(el.searchButton).last().click({ force: true })
   }
 
@@ -273,7 +272,8 @@ class Search {
   // } 
 
   advancedSearchAssertion () {
-    cy.get(el.labelState).should('contain.text', state_1)
+    cy.get(el.labelState, { timeout: 150000 }).should('contain.text', state_1)
+    cy.pause()
   }
   
   // advancedSearchPaginatorAssertion () {
@@ -294,7 +294,7 @@ class Search {
   }
 
   commonSearchAssertion () {
-    cy.get(el.labelState).should('contain', city_1)
+    cy.get(el.labelState, { timeout: 120000}).should('contain', city_1)
   }
 
   doctorSearch () {
@@ -303,7 +303,7 @@ class Search {
   }
 
   doctorSearchAssertion () {
-    cy.get(el.doctorLabelName).should('have.text', doctor)
+    cy.get(el.doctorLabelName, { timeout: 150000 }).should('have.text', doctor)
   }
 
   urgentEmergencySearch () {
@@ -313,7 +313,7 @@ class Search {
   }
 
   urgentEmergencySearchAssertion () {
-    cy.get(el.labelEstablishment)
+    cy.get(el.labelEstablishment, { timeout: 120000 })
     .should('contain.text', 'Internações')
     .and('contain.text', 'Análises')
   }
