@@ -8,7 +8,11 @@ context('Search for doctors no SP', () => {
       doctors.accessMedicalGuidePage()
     })
 
-  it('should seek doctors only in the city of Rio de Janeiro through the detailed search', () => {
+  afterEach(() => {
+    cy.clearLocalStorage()
+  })
+
+  it('should seek doctors only in the Rio de Janeiro city through the detailed search', () => {
       doctors.advancedSearchPaginator()             
       doctors.advancedSearchAssertion()
   })
@@ -23,7 +27,7 @@ context('Search for doctors no SP', () => {
     doctors.advancedSearchAssertion()
   })
 
-  it('should seek doctors only in the Rio de Janeiro city by establishment', () => {
+  it.only('should seek doctors only in the Rio de Janeiro city by establishment', () => {
     doctors.advancedEstablishmentSearchPaginator()
     doctors.advancedSearchAssertion()
   })
@@ -33,7 +37,7 @@ context('Search for doctors no SP', () => {
     doctors.advancedSearchAssertion()
   })
 
-  it('should seek doctors only in the Rio de Janeiro city by plan type', () => {
+  it.skip('should seek doctors only in the Rio de Janeiro city by plan type', () => {
     doctors.advancedPlanTypeSearchPaginator()  
     doctors.advancedSearchAssertion()    
   }) 
@@ -78,7 +82,7 @@ context('Search for doctors no SP', () => {
     doctors.advancedSearchAssertion()    
   })
 
-  it('should seek doctors only in the Rio de Janeiro city by network and plan', () => {
+  it.skip('should seek doctors only in the Rio de Janeiro city by network and plan', () => {
     doctors.advancedNetworkPlanSearchPaginator()  
     doctors.advancedSearchAssertion()    
   })

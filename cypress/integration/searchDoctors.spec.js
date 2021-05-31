@@ -8,6 +8,10 @@ context('Search for doctors', () => {
     doctors.accessMedicalGuidePage()
   })
 
+  afterEach(() => {
+    cy.clearLocalStorage()
+  })
+
   it('should search for doctors by city using common search', () => {
     doctors.commonSearch()
     doctors.commonSearchAssertion()
@@ -23,7 +27,7 @@ context('Search for doctors', () => {
     doctors.advancedSearchAssertion()
   })
   
-  it('should Search for doctors by city using common search and urgent and emergency care only', () => {
+  it('should search for doctors by city using common search and urgent and emergency care only', () => {
     doctors.urgentEmergencySearch()
     doctors.urgentEmergencySearchAssertion()   
   })
@@ -33,7 +37,8 @@ context('Search for doctors', () => {
     doctors.doctorSearchAssertion()
   });
 
-  it.only('should search medicals using all filters', () => {
+  it.skip('should search medicals using all filters', () => {
+    // / Skiped test because there is an intermittency in the search for information on the website, each hour brings a different result
     doctors.advancedSearchAllFilters()       
     doctors.advancedSearchAssertion()
   }) 

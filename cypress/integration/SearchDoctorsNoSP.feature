@@ -8,7 +8,7 @@ Background:
     Given I have access to the Medical Guide
     When I click on Detailed search
 
-Scenario: Seek doctors only in the city of Rio de Janeiro through the detailed search      
+Scenario: Seek doctors only in the Rio de Janeiro city through the detailed search      
     And I select the state
     And I click on button search
     Then I see options for doctors
@@ -76,7 +76,6 @@ Scenario: Seek doctors only in the Rio de Janeiro city by district and network
     And I select the network
     And I click on button search
     Then I see options for doctors
-
 
 Scenario: Seek doctors only in the Rio de Janeiro city by district and plan
     And I click on see more filters

@@ -8,27 +8,26 @@ const city_1 = 'Armação dos Búzios'
 const city_2 = 'Rio de Janeiro'
 const district = 'Centro'
 const district_1 = 'Bangu'
-const doctor = 'Karla Valeria Medina Fisioterapia '
+const doctor = 'Karla Valeria Medina Fisioterapia'
 const establishment_1 = 'Médico'
 const qualification = 'Residência'
 
 class Search {
 
   accessMedicalGuidePage () {
-    cy.visit('/guia-medico', { timeout: 60000 })  
+    cy.visit('/guia-medico#', { timeout: 90000 })  
     cy.url().should('eq', `${Cypress.config().baseUrl}/guia-medico#/`)
     cy.get(el.titleSearchPage).should('have.text', 'Encontre um médico')
   }
 
-
-  // div[class="InputColumn col-lg-6"] 
-
   advancedSearch () {
     cy.get(el.tabSearchAdvanced).click()
     cy.get(el.selectSpecialty, { timeout: 30000 }).first().click().type('Fonoaudiologia{enter}')
+    cy.wait(1000)
     cy.get(el.selectStateDynamic, { timeout: 15000 }).click({ force: true }).should('be.visible', 'Rio de Janeiro')
     cy.get(el.selectMenuDynamic).scrollIntoView().should('be.visible')
-    cy.get(el.selectStateRJ).contains('Rio de Janeiro').click()     
+    cy.get(el.selectStateRJ).contains('Rio de Janeiro').click()  
+    cy.wait(1000)   
     cy.get(el.selectCityDinamic, { timeout: 15000}).click({ force: true }).should('be.visible', 'Cidade')
     cy.get(el.selectMenuDynamic).scrollIntoView().should('be.visible')
     cy.get(el.selectCityAraruama).contains('Araruama').click()
@@ -39,33 +38,32 @@ class Search {
     cy.get(el.tabSearchAdvanced).click()
     cy.get(el.toogleEmergency).click()
     cy.get(el.moreFilters).click({ force: true })
-    cy.get(el.selectSpecialty, { timeout: 30000 }).first().click().type('Consulta Ginecologia{enter}')
+    cy.get(el.selectSpecialty, { timeout: 30000 }).first().click().type('Cardiologia{enter}')
     cy.get(el.selectStateDynamic, { timeout: 15000 }).click({ force: true }).should('be.visible', 'Rio de Janeiro')
     cy.get(el.selectMenuDynamic).scrollIntoView().should('be.visible')
-    cy.get(el.selectStateRJ).contains('Rio de Janeiro').click()     
+    cy.get(el.selectStateRJ).contains('Rio de Janeiro').click() 
     cy.get(el.selectCityDinamic, { timeout: 15000}).click({ force: true }).should('be.visible', 'Cidade')
     cy.get(el.selectMenuDynamic).scrollIntoView().should('be.visible')
     cy.get(el.selectCityRioJaneiro).contains('Rio de Janeiro').click()
-
-    cy.get('div div[class=" css-1xamc9y-placeholder"]', { timeout: 15000 }).contains('Bairro').click({ force: true }).should('be.visible', 'Bairro')
+    cy.get(el.divDistrict, { timeout: 15000 }).contains('Bairro').click({ force: true }).should('be.visible', 'Bairro')
     cy.get(el.selectMenuDynamic).scrollIntoView().should('be.visible')
     cy.get(el.selectMenuDynamic, { timeout: 15000 }).contains('Centro').click()
-
     cy.get(el.inputEstablishment, { timeout: 8000 }).focus().type(`${establishment_1}{enter}`)
     cy.get(el.inputNetwork, { timeout: 8000 }).focus().type('ES04{enter}') 
-    cy.get(el.inputPlan, { timeout: 8000 }).focus().type('(449992041) - 200611 ADESAO GRANDE GRUPO BOLETO PERSONAL DENTAL QTO COLET{enter}')
+    cy.get(el.inputPlan, { timeout: 8000 }).focus().type('(450353048) - 200611 INDIVIDUALFAMILIAR PERSONAL DENTAL QTO COLETIVO{enter}')
     cy.get(el.inputQualification, { timeout: 8000 }).focus().type('Residência{enter}')
-    cy.wait(2000)
     cy.get(el.searchButton).last().click({ force: true })
   }
 
   advancedEmergencySearch () {
     cy.get(el.tabSearchAdvanced).click()
-    cy.get(el.toogleEmergency).click()
+    cy.get(el.toogleEmergency, { timeout: 3000 }).click()
     cy.get(el.selectSpecialty, { timeout: 30000 }).first().click().type('Fonoaudiologia{enter}')
+    cy.wait(1000)
     cy.get(el.selectStateDynamic, { timeout: 15000 }).click({ force: true }).should('be.visible', 'Rio de Janeiro')
     cy.get(el.selectMenuDynamic).scrollIntoView().should('be.visible')
-    cy.get(el.selectStateRJ).contains('Rio de Janeiro').click()     
+    cy.get(el.selectStateRJ).contains('Rio de Janeiro').click()  
+    cy.wait(1000)   
     cy.get(el.selectCityDinamic, { timeout: 15000}).click({ force: true }).should('be.visible', 'Cidade')
     cy.get(el.selectMenuDynamic).scrollIntoView().should('be.visible')
     cy.get(el.selectCityAraruama).contains('Araruama').click()
@@ -98,9 +96,13 @@ class Search {
     cy.get(el.moreFilters).click({ force: true })
     cy.get(el.selectStateDynamic, { timeout: 15000 }).click({ force: true }).should('be.visible', 'Rio de Janeiro')
     cy.get(el.selectMenuDynamic).scrollIntoView().should('be.visible')
-    cy.get(el.selectStateRJ).contains('Rio de Janeiro').click() 
-    cy.get(el.inputCity).focus().type(`${city_2}{enter}`)    
-    cy.get(el.inputDistrict).focus().type(`${district}{enter}`) 
+    cy.get(el.selectStateRJ).contains('Rio de Janeiro').click()     
+    cy.get(el.selectCityDinamic, { timeout: 15000}).click({ force: true }).should('be.visible', 'Cidade')
+    cy.get(el.selectMenuDynamic).scrollIntoView().should('be.visible')
+    cy.get(el.selectCityRioJaneiro).contains(`${city_2}`).click()
+    cy.get(el.divDistrict, { timeout: 15000 }).contains('Bairro').click({ force: true }).should('be.visible', 'Bairro')
+    cy.get(el.selectMenuDynamic).scrollIntoView().should('be.visible')
+    cy.get(el.selectMenuDynamic, { timeout: 15000 }).contains(`${district}`).click()
     cy.get(el.searchButton).last().click({ force: true })
     cy.get(el.paginatorButton).click() 
     cy.get(el.paginatorButton).click()
@@ -151,8 +153,12 @@ class Search {
     cy.get(el.selectStateDynamic, { timeout: 15000 }).click({ force: true }).should('be.visible', 'Rio de Janeiro')
     cy.get(el.selectMenuDynamic).scrollIntoView().should('be.visible')
     cy.get(el.selectStateRJ).contains('Rio de Janeiro').click() 
-    cy.get(el.inputCity).focus().type(`${city_2}{enter}`)  
-    cy.get(el.inputQualification).focus().type('Residência{enter}')  
+    cy.get(el.selectCityDinamic, { timeout: 15000}).click({ force: true }).should('be.visible', 'Cidade')
+    cy.get(el.selectMenuDynamic).scrollIntoView().should('be.visible')
+    cy.get(el.selectCityRioJaneiro).contains(`${city_2}`).click()
+    cy.get(el.divQualification).contains('Qualificação').click({ force: true }).should('be.visible', 'Qualificação')
+    cy.get(el.selectMenuDynamic).scrollIntoView().should('be.visible')
+    cy.get(el.divQualificationRes).contains('Qualificação').type('Residência{enter}')  
     cy.get(el.searchButton).last().click({ force: true })
     cy.get(el.paginatorButton).click() 
     cy.get(el.paginatorButton).click()
@@ -166,7 +172,10 @@ class Search {
     cy.get(el.selectStateRJ).contains('Rio de Janeiro').click() 
     cy.get(el.inputCity).focus().type(`${city_2}{enter}`) 
     cy.wait(1000) 
-    cy.get(el.inputDistrict).focus().type(`${district_1}{enter}`) 
+    cy.get(el.divDistrict, { timeout: 15000 }).contains('Bairro').click({ force: true }).should('be.visible', 'Bairro')
+    cy.get(el.selectMenuDynamic).scrollIntoView().should('be.visible')
+    cy.get(el.selectMenuDynamic, { timeout: 15000 }).contains(`${district_1}`).click()
+    // cy.get(el.inputDistrict).focus().type(`${district_1}{enter}`) 
     cy.get(el.inputEstablishment).focus().type(`${establishment_1}{enter}`)
     cy.get(el.searchButton).last().click({ force: true })
     cy.get(el.paginatorButton).click() 
@@ -208,8 +217,10 @@ class Search {
     cy.get(el.selectMenuDynamic).scrollIntoView().should('be.visible')
     cy.get(el.selectStateRJ).contains('Rio de Janeiro').click() 
     cy.get(el.inputCity).focus().type(`${city_2}{enter}`)  
-    cy.get(el.inputDistrict).focus().type(`${district}{enter}`)   
-    cy.get(el.inputQualification).focus().type(`${qualification}{enter}`)    
+    cy.get(el.inputDistrict).focus().type(`${district}{enter}`)  
+    cy.get(el.divQualification).contains('Qualificação').click({ force: true }).should('be.visible', 'Qualificação')
+    cy.get(el.selectMenuDynamic).scrollIntoView().should('be.visible')
+    cy.get(el.divQualificationRes).contains('Qualificação').type('Residência{enter}')     
     cy.get(el.searchButton).last().click({ force: true })
     cy.get(el.paginatorButton).click() 
     cy.get(el.paginatorButton).click()
@@ -253,7 +264,8 @@ class Search {
     cy.get(el.selectStateRJ).contains('Rio de Janeiro').click() 
     cy.get(el.inputCity).focus().type(`${city_2}{enter}`)  
     cy.get(el.inputEstablishment, { timeout: 5000 }).focus().type(`${establishment_1}{enter}`)   
-    cy.get(el.inputQualification).focus().type('Residência{enter}') 
+    cy.get(el.inputQualification, { timeout: 8000 }).focus().type('Residência{enter}')
+	  cy.wait(2000) 
     cy.get(el.searchButton).last().click({ force: true })
     cy.wait(3000)
     cy.get(el.paginatorButton, { timeout: 5000 }).click({ force: true })
@@ -295,28 +307,17 @@ class Search {
 
   advancedPlanQualificationSearchPaginator () {
     cy.get(el.tabSearchAdvanced).click()
-    cy.get(el.moreFilters).click({ force: true })
-
-    cy.get('div.css-1xamc9y-placeholder')
-    .each(($elem, index) => {
-      if (index === 1) {
-        cy.wrap($elem).click({force: true}).focused().type('{selectall}')
-        cy.wrap($elem).type(`${state}{enter}`, { timeout: 5000 }, {force:true})
-        cy.wait(1500) 
-      }
-    })
-
-    cy.get('div.css-1xamc9y-placeholder')
-    .each(($elem, index) => {
-      if (index === 1) {
-        cy.wrap($elem).click({force: true}).focused().type('{selectall}')
-        cy.wrap($elem).type(`${city_2}{enter}`, { timeout: 5000 }, {force:true})
-        cy.wait(1000) 
-      }
-    })
-
-    cy.get(el.inputPlan).focus().type('(436116014) - 200611 ADESAO GRANDE GRUPO BOLETO ALFA DENTAL UNIPART 30{enter}')
-    cy.get(el.inputQualification).focus().type('Residência{enter}') 
+    cy.get(el.moreFilters, { timeout: 5000 }).click({ force: true })
+    cy.get(el.selectStateDynamic, { timeout: 15000 }).click({ force: true }).should('be.visible', 'Rio de Janeiro')
+    cy.get(el.selectMenuDynamic).scrollIntoView().should('be.visible')
+    cy.get(el.selectStateRJ).contains('Rio de Janeiro').click() 
+    cy.get(el.selectCityDinamic, { timeout: 15000}).click({ force: true }).should('be.visible', 'Cidade')
+    cy.get(el.selectMenuDynamic).scrollIntoView().should('be.visible')
+    cy.get(el.selectCityRioJaneiro).contains('Rio de Janeiro').click()
+    cy.get(el.inputPlan, { timeout: 8000 }).focus().type('(436116014) - 200611 ADESAO GRANDE GRUPO BOLETO ALFA DENTAL UNIPART 30{enter}').should('be.visible')
+    cy.get(el.divQualification).contains('Qualificação').click({ force: true }).should('be.visible', 'Qualificação')
+    cy.get(el.selectMenuDynamic).scrollIntoView().should('be.visible')
+    cy.get(el.divQualificationRes).contains('Qualificação').type('Residência{enter}') 
     cy.get(el.searchButton).last().click({ force: true })
     cy.wait(3000)
     cy.get(el.paginatorButton, { timeout: 5000 }).click({ force: true })
@@ -325,8 +326,8 @@ class Search {
   }
 
   advancedSearchAssertion () {
-    cy.wait(2000)
-    cy.get(el.labelState, { timeout: 150000 }).should('contain.text', state_1)
+    cy.wait(3000)
+    cy.get(el.labelState, { timeout: 30000 }).should('contain.text', state_1)
   }
   
   commonSearch () {
@@ -335,26 +336,28 @@ class Search {
   }
 
   commonSearchAssertion () {
-    cy.get(el.labelState, { timeout: 120000}).should('contain', city_1)
+    cy.get(el.labelState, { timeout: 80000}).should('contain', city_1)
   }
 
   doctorSearch () {
-    cy.get(el.inputCommonSearch, { timeout: 10000 }).focus().type(`${doctor}`)
+    cy.get(el.inputCommonSearch, { timeout: 30000 }).focus().type(`${doctor}`).should('be.visible')
     cy.get(el.searchButton).last().click({ force: true })
   }
 
   doctorSearchAssertion () {
-    cy.get(el.doctorLabelName, { timeout: 150000 }).should('have.text', doctor)
+    cy.wait(5000)
+    cy.get(el.doctorLabelName, { timeout: 10000 }).should('contain.text', doctor)
   }
 
   urgentEmergencySearch () {
-    cy.get(el.inputCommonSearch).focus().type(`${city}`)
+    cy.get(el.inputCommonSearch, { timeout: 8000 }).focus().type(`${city}`)
     cy.get(el.toogleEmergency).click()
     cy.get(el.searchButton).last().click({ force: true })
   }
 
   urgentEmergencySearchAssertion () {
-    cy.get(el.labelEstablishment, { timeout: 120000 })
+    cy.wait(3000)
+    cy.get(el.labelEstablishment, { timeout: 80000 })
     .should('contain.text', 'Internações')
     .and('contain.text', 'Análises')
   }
