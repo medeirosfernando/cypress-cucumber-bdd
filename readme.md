@@ -1,4 +1,4 @@
-# Testes de UI com `--Cypress, `--Cucumber usando a prática `--BDD
+# Testes de UI com `--Cypress`, `--Cucumber` usando a prática `--BDD`
 
 ## Projeto desenvolvido para estudo pessoal
 
@@ -22,8 +22,8 @@ Este projeto utiliza as seguintes tecnologias:
 
 Instale as dependências:
 
-[Cypress Cucumber Preprocessor](https://www.npmjs.com/package/cypress-cucumber-preprocessor) 
-[Cypress Tab](https://github.com/Bkucera/cypress-plugin-tab)
+- [Cypress Cucumber Preprocessor](https://www.npmjs.com/package/cypress-cucumber-preprocessor) 
+- [Cypress Tab](https://github.com/Bkucera/cypress-plugin-tab)
 
 ## Desafio
 ```sh
@@ -34,14 +34,15 @@ Criar um projeto de automação utilizando BDD.
 ```
 ## Execução de cenários individuais
 
-- Para executar um único cenário no cypress, inserir a tag ".only" na frente do teste( palavra "it").
+- Para executar um único cenário no cypress, inserir a tag `--.only` na frente do teste.
 
-it.only'example', () => {
+it`--.only`('example', () => {
     // test code
   });
 
-- Para executar um único cenário no cucumber, inserir a tag "@focus" acima do cenário.
+- Para executar um único cenário no cucumber, inserir a tag `--@focus` acima do cenário.
 
-@focus
+`--@focus`
 Scenario: Scenario name
 
+**Explorar é acreditar que algo novo possa ser revelado, descoberto. Nando Medeiros**
