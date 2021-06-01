@@ -1,6 +1,7 @@
 # Testes de UI com Cypress, Cucumber usando a prática BDD
-
-
+![cucumber](https://user-images.githubusercontent.com/25454762/120257830-521d3d00-c267-11eb-8c4f-1efd6f405a87.png)
+![cypress](https://user-images.githubusercontent.com/25454762/120257831-534e6a00-c267-11eb-9486-30b9b8f1f843.png)
+![bdd](https://user-images.githubusercontent.com/25454762/120257832-534e6a00-c267-11eb-8358-88e7e2b8ad69.png)
 
 ## Projeto desenvolvido para estudo pessoal
 
@@ -78,7 +79,7 @@ Scenario: Scenario name
 ## Vídeos das execuções dos testes
 
 ### Sem cucumber
-
+https://user-images.githubusercontent.com/25454762/120257877-6bbe8480-c267-11eb-95c2-2f5782579a1b.mp4
 
 ### Com cucumber
 
