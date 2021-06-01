@@ -78,4 +78,4 @@ Scenario: Scenario name
 
 [Testes com Cucumber](https://www.youtube.com/watch?v=AxpC-IX-Q1Y)
 
-** Explorar é acreditar que algo novo possa ser revelado, descoberto. `Nando Medeiros` **
+`--Explorar é acreditar que algo novo possa ser revelado, descoberto.` `Nando Medeiros`
