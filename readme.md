@@ -1,28 +1,40 @@
-## Iniciando o projeto com Cypress
+# Testes de UI com `--Cypress, `--Cucumber usando a prática `--BDD
 
-### Testes realizados no site da Unimed
+## Projeto desenvolvido para estudo pessoal
 
-- https://www.unimed.coop.br
+- Site [testado] (https://www.unimed.coop.br) 
 
-Passos para configuração e execução do projeto:
-  a. instalação das dependências: `npm install`
-  b. execução dos testes modo open: `npm run cy:open`
-  c. execução dos testes modo open com cucumber: `npm run cy:open:cucumber`
+| Passos para configuração e execução do projeto | Comando                    |
+| ---------------------------------------------- | ---------------------------|
+| instalação das dependências                    | `npm install`              |
+| execução dos testes modo open                  | `npm run cy:open`          |
+| execução dos testes modo open com cucumber     | `npm run cy:open:cucumber` |
 
-# Tecnologias
-- Cypress 7.4.0
-- Cucumber
-- NodeJs 14.15.0
-- NPM 7.13.0
-# Dependências
+## Tecnologias
 
-- Cypress Cucumber Preprocessor (site para configuração: https://www.npmjs.com/package/cypress-cucumber-preprocessor)
-- Cypress Tab (site para configuração: https://github.com/Bkucera/cypress-plugin-tab)
+Este projeto utiliza as seguintes tecnologias:
 
+- [Cypress 7.4.0](https://docs.cypress.io/guides/getting-started/installing-cypress#System-requirements)
+- [Cucumber 6.0.0](https://cucumber.io/tools/cucumberstudio/?&utm_medium=ppcg&utm_source=aw&utm_term=%2Bcucumber%20%2Bframework&utm_content=444348764785&utm_campaign=%7Bcampaign%7D&gclsrc=aw.ds&gclid=EAIaIQobChMI9ZqB7qb18AIVkYKRCh190wtyEAAYASAAEgLAmfD_BwE)
+- [NodeJs 14.15.0](https://nodejs.org/en/)
+- [NPM 7.13.0](https://docs.npmjs.com/cli/v7/commands/npm-install)
+## Dependências
 
-# Execução de cenários individuais
+Instale as dependências:
 
-- Para executar um único cenário no cypress, inserir a tag ".only" na frente do teste.
+[Cypress Cucumber Preprocessor](https://www.npmjs.com/package/cypress-cucumber-preprocessor) 
+[Cypress Tab](https://github.com/Bkucera/cypress-plugin-tab)
+
+## Desafio
+```sh
+Elaborar cenários de testes e em programação necessárias para automatização dos testes
+```
+```sh
+Criar um projeto de automação utilizando BDD.
+```
+## Execução de cenários individuais
+
+- Para executar um único cenário no cypress, inserir a tag ".only" na frente do teste( palavra "it").
 
 it.only'example', () => {
     // test code
