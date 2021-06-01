@@ -6,12 +6,6 @@
 
 - [Site](https://www.unimed.coop.br) 
 
-| Passos para configuração e execução do projeto | Comando                    |
-| ---------------------------------------------- | ---------------------------|
-| Instalação das dependências                    | `npm install`              |
-| Execução dos testes modo open                  | `npm run cy:open`          |
-| Execução dos testes modo open com cucumber     | `npm run cy:open:cucumber` |
-
 ## Tecnologias
 
 Este projeto utiliza as seguintes tecnologias:
@@ -30,11 +24,13 @@ Instale as dependências:
 
 ## Desafio
 ```sh
-Elaborar cenários de testes e em programação necessárias para automatização dos testes.
+- Elaborar cenários de testes e em programação necessárias para automatização dos testes.
 
-Criar um projeto de automação utilizando BDD.
+- Criar um projeto de automação utilizando BDD.
 ```
+
 ## Passos para configuração do projeto
+
 > Dentro de uma pasta, abrir o terminal (prompt) e realizar os seguintes comandos:
 > 
 > Inicialização do projeto: npm init --yes
@@ -47,10 +43,13 @@ Criar um projeto de automação utilizando BDD.
 
 ## Execução dos testes
 
-- Modo navegador aberto: npm run cy:open
-- Modo headless: npm run cy:run
-- Modo navegador aberto cucumber: npm run cy:open:cucumber
-- Modo navegador headless cucumber: npm run cy:run:cucumber
+| Passos para configuração e execução do testes  | Comando                    |
+| ---------------------------------------------- | ---------------------------|
+| Instalação das dependências                    | `npm install`              |
+| Execução dos testes modo open                  | `npm run cy:open`          |
+| Execução dos testes modo open com cucumber     | `npm run cy:open:cucumber` |
+| Execução dos testes modo headless              | `npm run cy:run`           |
+| Execução dos testes modo headless com cucumber | `npm run cy:run:cucumber`  |  
 
 ## Execução de cenários individuais
 
@@ -79,4 +78,4 @@ Scenario: Scenario name
 
 [Testes com Cucumber](https://www.youtube.com/watch?v=AxpC-IX-Q1Y)
 
-**Explorar é acreditar que algo novo possa ser revelado, descoberto. `Nando Medeiros`**
+** Explorar é acreditar que algo novo possa ser revelado, descoberto. `Nando Medeiros` **
