@@ -1,5 +1,6 @@
-# Testes de UI com Cypress, Cucumber usando a prática BDD
 ![cypress](https://user-images.githubusercontent.com/25454762/120258163-e5ef0900-c267-11eb-9631-e33eb593f91a.png)
+
+# Testes de UI com Cypress, Cucumber usando a prática BDD
 
 ## Projeto desenvolvido para estudo pessoal
 
