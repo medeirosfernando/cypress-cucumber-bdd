@@ -1,4 +1,4 @@
-# Testes de UI com `--Cypress`, `--Cucumber` usando a prática `--BDD`
+# Testes de UI com Cypress, Cucumber usando a prática BDD
 
 ## Projeto desenvolvido para estudo pessoal
 
@@ -18,6 +18,7 @@ Este projeto utiliza as seguintes tecnologias:
 - [Cucumber 6.0.0](https://cucumber.io/tools/cucumberstudio/?&utm_medium=ppcg&utm_source=aw&utm_term=%2Bcucumber%20%2Bframework&utm_content=444348764785&utm_campaign=%7Bcampaign%7D&gclsrc=aw.ds&gclid=EAIaIQobChMI9ZqB7qb18AIVkYKRCh190wtyEAAYASAAEgLAmfD_BwE)
 - [NodeJs 14.15.0](https://nodejs.org/en/)
 - [NPM 7.13.0](https://docs.npmjs.com/cli/v7/commands/npm-install)
+
 ## Dependências
 
 Instale as dependências:
@@ -28,21 +29,41 @@ Instale as dependências:
 ## Desafio
 ```sh
 Elaborar cenários de testes e em programação necessárias para automatização dos testes
-```
-```sh
+
 Criar um projeto de automação utilizando BDD.
 ```
+## Passos para configuração do projeto
+> Dentro de uma pasta, abrir o terminal (prompt) e realizar os seguintes comandos:
+> Inicialização do projeto: npm init --yes
+> Instalação da última versão do Cypress: npm install -D cypress
+> Executar o comando para criação da estrutura padrão do Cypress via terminal na pasta raiz: npx cypress open
+> Apagar a pasta examples dentro do diretório Integration
+
+## Execução dos testes
+
+- Modo navegador aberto: npm run cy:open
+- Modo headless: npm run cy:run
+- Modo navegador aberto cucumber: npm run cy:open:cucumber
+- Modo navegador headless cucumber: npm run cy:run:cucumber
+
 ## Execução de cenários individuais
 
-- Para executar um único cenário no cypress, inserir a tag `--.only` na frente do teste.
+- Para executar um único cenário no cypress, inserir a tag `.only` na frente do teste.
 
-it`--.only`('example', () => {
+it`only`('example', () => {
     // test code
   });
 
-- Para executar um único cenário no cucumber, inserir a tag `--@focus` acima do cenário.
+- Para executar um único cenário no cucumber, inserir a tag `@focus` acima do cenário.
 
-`--@focus`
+`@focus`
 Scenario: Scenario name
+
+## Conceitos e abordagens
+
+> [Pairwise]testing (https://en.wikipedia.org/wiki/All-pairs_testing)
+> Page objects
+> Padrão AAA - [ARRANGE-ACT-ASSERT](https://freecontent.manning.com/making-better-unit-tests-part-1-the-aaa-pattern/)
+> BDD
 
 **Explorar é acreditar que algo novo possa ser revelado, descoberto. Nando Medeiros**
