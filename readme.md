@@ -2,13 +2,13 @@
 
 ## Projeto desenvolvido para estudo pessoal
 
-- Site [testado] (https://www.unimed.coop.br) 
+- [Site](https://www.unimed.coop.br) 
 
 | Passos para configuração e execução do projeto | Comando                    |
 | ---------------------------------------------- | ---------------------------|
-| instalação das dependências                    | `npm install`              |
-| execução dos testes modo open                  | `npm run cy:open`          |
-| execução dos testes modo open com cucumber     | `npm run cy:open:cucumber` |
+| Instalação das dependências                    | `npm install`              |
+| Execução dos testes modo open                  | `npm run cy:open`          |
+| Execução dos testes modo open com cucumber     | `npm run cy:open:cucumber` |
 
 ## Tecnologias
 
