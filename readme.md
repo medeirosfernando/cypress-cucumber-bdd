@@ -66,8 +66,19 @@ Scenario: Scenario name
 ## Conceitos e abordagens
 
 > [Pairwise]testing (https://en.wikipedia.org/wiki/All-pairs_testing)
+> 
 > Page objects
+> 
 > Padrão AAA - [ARRANGE-ACT-ASSERT](https://freecontent.manning.com/making-better-unit-tests-part-1-the-aaa-pattern/)
+> 
 > BDD
 
-**Explorar é acreditar que algo novo possa ser revelado, descoberto. Nando Medeiros**
+## Vídeos das execuções dos testes
+
+### Sem cucumber
+
+
+### Com cucumber
+
+
+**Explorar é acreditar que algo novo possa ser revelado, descoberto. `Nando Medeiros`**
