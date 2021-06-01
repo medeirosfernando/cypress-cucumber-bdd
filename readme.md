@@ -28,15 +28,19 @@ Instale as dependências:
 
 ## Desafio
 ```sh
-Elaborar cenários de testes e em programação necessárias para automatização dos testes
+Elaborar cenários de testes e em programação necessárias para automatização dos testes.
 
 Criar um projeto de automação utilizando BDD.
 ```
 ## Passos para configuração do projeto
 > Dentro de uma pasta, abrir o terminal (prompt) e realizar os seguintes comandos:
+> 
 > Inicialização do projeto: npm init --yes
+> 
 > Instalação da última versão do Cypress: npm install -D cypress
+> 
 > Executar o comando para criação da estrutura padrão do Cypress via terminal na pasta raiz: npx cypress open
+> 
 > Apagar a pasta examples dentro do diretório Integration
 
 ## Execução dos testes
